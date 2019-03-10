@@ -1,0 +1,13 @@
+config:
+  target: 'http://localhost:3000'
+  http:
+    pool: 12
+  phases:
+    - duration: 60
+      arrivalRate: 350
+scenarios:
+  - flow:
+    - get:
+        url: "/{{$randomNumber(1, 74000000)}}"
+    - get: 
+        url: "/pictures/{{$randomNumber(1, 74000000)}}"
